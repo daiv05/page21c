@@ -691,12 +691,20 @@
       "description": "A screenshot of the home page"
     }
   ],
-  "prefer_related_applications": "false",
+  "prefer_related_applications": false,
   "shortcuts": [
     {
       "name": "DV Tech",
       "url": "/dc19019",
       "description": "this me"
     }
+  ],
+  "display_override": [
+    "minimal-ui"
+  ],
+  "categories": [
+    "education",
+    "productivity",
+    "utilities"
   ]
 }

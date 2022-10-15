@@ -1,0 +1,45 @@
+System.Text.Json.JsonException: The JSON value could not be converted to System.Nullable`1[System.Boolean]. Path: $.manifestContents.prefer_related_applications | LineNumber: 0 | BytePositionInLine: 10286.
+ ---> System.InvalidOperationException: Cannot get the value of a token type 'String' as a boolean.
+   at System.Text.Json.Utf8JsonReader.GetBoolean()
+   at System.Text.Json.Serialization.Converters.BooleanConverter.Read(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.Converters.NullableConverter`1.Read(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Microsoft.PWABuilder.Windows.Chromium.Services.WebManifestFinder.DeserializeJson(String jsonResult) in D:\a\pwabuilder-windows-chromium\pwabuilder-windows-chromium\Web\Services\WebManifestFinder.cs:line 74
+   at Microsoft.PWABuilder.Windows.Chromium.Services.WebManifestFinder.Find(WindowsAppPackageOptions options) in D:\a\pwabuilder-windows-chromium\pwabuilder-windows-chromium\Web\Services\WebManifestFinder.cs:line 61
+   at Microsoft.PWABuilder.Windows.Chromium.Services.WindowsAppPackageCreator.GenerateZip(WindowsAppPackageOptions options) in D:\a\pwabuilder-windows-chromium\pwabuilder-windows-chromium\Web\Services\WindowsAppPackageCreator.cs:line 134
+   at Microsoft.PWABuilder.Windows.Chromium.Services.WindowsAppPackageCreator.CreateAppPackage(WindowsAppPackageOptions options) in D:\a\pwabuilder-windows-chromium\pwabuilder-windows-chromium\Web\Services\WindowsAppPackageCreator.cs:line 70
+   at Microsoft.PWABuilder.Windows.Chromium.Controllers.MsixController.CreateAppPackage(WindowsAppPackageOptions options) in D:\a\pwabuilder-windows-chromium\pwabuilder-windows-chromium\Web\Controllers\MsixController.cs:line 145
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+HEADERS
+=======
+Accept: */*
+Accept-Encoding: gzip,deflate
+Connection: close
+Content-Length: 180
+Content-Type: application/json
+Host: pwabuilder-winserver.centralus.cloudapp.azure.com
+User-Agent: node-fetch/1.0 (+https://github.com/bitinn/node-fetch)
